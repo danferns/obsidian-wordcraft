@@ -40,7 +40,6 @@
 	async function fetchWords() {
 		if (!search) return;
 		let url = `${BASE_URL}?${globalParams}${topics}&${modes[mode].params}${search}`;
-		console.log(url);
 		let response = await fetch(url);
 		let result: Word[] = await response.json();
 		words = result;
@@ -49,7 +48,6 @@
 	let timer: NodeJS.Timeout;
 
 	const debounce = () => {
-		console.log("Debouncing...");
 		clearTimeout(timer);
 		timer = setTimeout(() => {
 			fetchWords();
