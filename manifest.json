@@ -1,11 +1,13 @@
 {
-	"id": "sample-plugin",
-	"name": "Sample Plugin",
+	"id": "wordcraft",
+	"name": "WordCraft",
 	"version": "1.0.0",
-	"minAppVersion": "0.15.0",
-	"description": "Demonstrates some of the capabilities of the Obsidian API.",
-	"author": "Obsidian",
-	"authorUrl": "https://obsidian.md",
-	"fundingUrl": "https://obsidian.md/pricing",
+	"minAppVersion": "1.8.0",
+	"description": "Find rhymes, synonyms, and describing words. Designed for songwriting and poetry.",
+	"author": "Daniel Fernandes",
+	"authorUrl": "https://danferns.github.io",
+	"fundingUrl": {
+		"Buy my music": "https://twinklingkites.bandcamp.com/"
+	},
 	"isDesktopOnly": false
 }
