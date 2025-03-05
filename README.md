@@ -2,18 +2,18 @@
 
 Find rhymes, synonyms, and describing words from within Obsidian. Designed for songwriting and poetry.
 
-![image](https://github.com/user-attachments/assets/81108012-dfaa-4e74-9ab8-a6e8dbe172b2)
-
 Search Modes:
 
 -   Means like... (thesaurus / reverse dictionary)
 -   Rhymes with... (also includes near rhymes)
--   Nouns to describe... (endless -> sea)
+-   Nouns described by... (endless -> sea)
 -   Adjectives that describe... (sea -> endless)
 
 Click on a word from the results to search further. Noun and Adjective modes will swap, so clicking on a _noun_ will trigger a search for _adjectives_ that describe the noun.
 
 You may use the `Topics` box to provide the system with contextual hints.
+
+![image](https://github.com/user-attachments/assets/81108012-dfaa-4e74-9ab8-a6e8dbe172b2)
 
 ## Usage
 

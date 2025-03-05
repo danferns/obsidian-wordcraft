@@ -23,10 +23,10 @@
 		},
 		{
 			name: "Rhymes with...",
-			params: "rel_rhy=",
+			params: "arhy=1&md=fr&sl=",
 		},
 		{
-			name: "Nouns to describe...",
+			name: "Nouns described by...",
 			params: "rel_jja=",
 		},
 		{
