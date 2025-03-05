@@ -34,13 +34,15 @@ export default class WordCraft extends Plugin {
 			leaf = leaves[0];
 		} else {
 			leaf = workspace.getRightLeaf(false);
-			await leaf.setViewState({
+			await leaf?.setViewState({
 				type: VIEW_TYPE_WORDCRAFT,
 				active: true,
 			});
 		}
 
-		workspace.revealLeaf(leaf);
+		if (leaf) {
+			workspace.revealLeaf(leaf);
+		}
 	}
 }
 
