@@ -1,3 +1,5 @@
+# WordCraft
+
 Find rhymes, synonyms, and describing words from within Obsidian. Designed for songwriting and poetry.
 
 Search Modes:
@@ -10,6 +12,13 @@ Search Modes:
 Click on a word from the results to search further. Noun and Adjective modes will swap. So clicking on a _noun_ will trigger a search for _adjectives_ that describe the noun.
 
 You may use the `Topics` box to provide the system with contextual hints.
+
+## Usage
+
+There are currently two ways to open WordCraft:
+
+-   Use the `WordCraft: Open view` command.
+-   Click on the WordCraft "book" icon in the side ribbon.
 
 ## Credits
 
