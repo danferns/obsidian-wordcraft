@@ -9,11 +9,15 @@ Search Modes:
 -   Nouns described by... (endless -> sea)
 -   Adjectives that describe... (sea -> endless)
 
-Click on a word from the results to search further. Noun and Adjective modes will swap, so clicking on a _noun_ will trigger a search for _adjectives_ that describe the noun.
-
 You may use the `Topics` box to provide the system with contextual hints.
 
-![image](https://github.com/user-attachments/assets/81108012-dfaa-4e74-9ab8-a6e8dbe172b2)
+Click on a word from the results to repeat the search on it. Noun and Adjective modes will swap, so clicking on a _noun_ will trigger a search for _adjectives_ that describe the noun.
+
+You may filter words for syllabic stress patterns:
+- `/` is a stressed syllable.
+- `x` is an unstressed syllable.
+
+![app___obsidian md_index html](https://github.com/user-attachments/assets/cd2c4a3a-51b4-4915-a096-acb1290ed0a8)
 
 ## Usage
 
