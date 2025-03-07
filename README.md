@@ -9,7 +9,7 @@ Search Modes:
 -   Nouns described by... (endless -> sea)
 -   Adjectives that describe... (sea -> endless)
 
-You may use the `Topics` box to provide the system with contextual hints.
+If you wish, you may specify a couple of `Themes` to skew the results towards them. Nouns work best.
 
 Click on a word from the results to repeat the search on it. Noun and Adjective modes will swap, so clicking on a _noun_ will trigger a search for _adjectives_ that describe the noun.
 

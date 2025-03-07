@@ -122,7 +122,7 @@
 	<input
 		bind:value={topics}
 		type="text"
-		placeholder="Topics (Optional)"
+		placeholder="Themes (Optional)"
 		oninput={debounce}
 	/>
 
