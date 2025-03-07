@@ -13,7 +13,7 @@ You may use the `Topics` box to provide the system with contextual hints.
 
 Click on a word from the results to repeat the search on it. Noun and Adjective modes will swap, so clicking on a _noun_ will trigger a search for _adjectives_ that describe the noun.
 
-You may filter words for syllabic stress patterns:
+You may filter words for [syllabic stress patterns](https://youtu.be/JMxzLOSlhbs):
 - `/` is a stressed syllable.
 - `x` is an unstressed syllable.
 
