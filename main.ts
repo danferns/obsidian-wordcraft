@@ -64,7 +64,6 @@ export class WordCraftView extends ItemView {
 	async onOpen() {
 		this.component = mount(WordCraftComponent, {
 			target: this.contentEl,
-			props: { search: "", topics: "", mode: 0 },
 		});
 	}
 
