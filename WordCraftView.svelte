@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { SvelteSet } from "svelte/reactivity";
+	import { requestUrl, debounce } from "obsidian";
 
 	interface Word {
 		word: string;
@@ -94,13 +95,7 @@
 	}
 
 	// debounce keyboard input
-	let timer: NodeJS.Timeout;
-	const debounce = () => {
-		clearTimeout(timer);
-		timer = setTimeout(() => {
-			fetchWords();
-		}, 200);
-	};
+	const debounced = debounce(fetchWords, 200, true);
 
 	fetchWords();
 </script>
@@ -116,14 +111,14 @@
 		bind:value={search}
 		type="text"
 		placeholder="Search for words..."
-		oninput={debounce}
+		oninput={debounced}
 	/>
 
 	<input
 		bind:value={topics}
 		type="text"
 		placeholder="Themes (Optional)"
-		oninput={debounce}
+		oninput={debounced}
 	/>
 
 	<div class="list">
