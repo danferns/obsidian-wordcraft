@@ -117,7 +117,7 @@
 	<input
 		bind:value={topics}
 		type="text"
-		placeholder="Themes (Optional)"
+		placeholder="Themes (optional)"
 		oninput={debounced}
 	/>
 
