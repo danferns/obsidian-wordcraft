@@ -59,8 +59,8 @@
 	async function fetchWords() {
 		if (!search) return;
 		let url = `${BASE_URL}?${globalParams}${topics}&${modes[mode].params}${search}`;
-		let response = await fetch(url);
-		let result: Word[] = await response.json();
+		let response = await requestUrl(url);
+		let result: Word[] = await response.json;
 		words = result;
 	}
 
