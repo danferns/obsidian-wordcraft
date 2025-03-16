@@ -17,7 +17,7 @@ You may filter words for [syllabic stress patterns](https://youtu.be/JMxzLOSlhbs
 - `/` is a stressed syllable.
 - `x` is an unstressed syllable.
 
-![app___obsidian md_index html](https://github.com/user-attachments/assets/cd2c4a3a-51b4-4915-a096-acb1290ed0a8)
+![app___obsidian md_index html](https://github.com/user-attachments/assets/4321b709-2f46-4cc7-9f0c-aa518d594608)
 
 ## Usage
 
