@@ -17,6 +17,8 @@ You may filter words for [syllabic stress patterns](https://youtu.be/JMxzLOSlhbs
 - `/` is a stressed syllable.
 - `x` is an unstressed syllable.
 
+NOTE: WordCraft needs an internet connection to work.
+
 ![app___obsidian md_index html](https://github.com/user-attachments/assets/4321b709-2f46-4cc7-9f0c-aa518d594608)
 
 ## Usage
