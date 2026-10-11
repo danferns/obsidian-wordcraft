@@ -1,18 +1,25 @@
 <script lang="ts">
 	import { SvelteSet } from "svelte/reactivity";
-	import { requestUrl, debounce } from "obsidian";
-
-	interface Word {
-		word: string;
-		score: number;
-		tags: string[];
-	}
+	import { debounce } from "obsidian";
+	import {
+		MODES,
+		fetchWords,
+		getMeterFromWord,
+		type Word,
+	} from "./datamuse";
 
 	let {
-		topics = "",
+		topics = $bindable(""),
 		search = "",
 		mode = 0,
 		meters = "/ x/ /x // /xx x/x xx/".split(" "),
+		onTopicsChange,
+	}: {
+		topics?: string;
+		search?: string;
+		mode?: number;
+		meters?: string[];
+		onTopicsChange?: (topics: string) => void;
 	} = $props();
 
 	let selectedMeters = $state(new SvelteSet<string>());
@@ -20,9 +27,9 @@
 	let words: Word[] = $state([]);
 	let meterCounts = $derived(getMeterCounts(words));
 
-	function getMeterCounts(words: Word[]) {
+	function getMeterCounts(wordList: Word[]) {
 		let counts: { [key: string]: number } = {};
-		for (let word of words) {
+		for (let word of wordList) {
 			let meter = getMeterFromWord(word);
 			if (meters.includes(meter)) {
 				counts[meter] = (counts[meter] || 0) + 1;
@@ -33,56 +40,9 @@
 		return counts;
 	}
 
-	// Reference: https://www.datamuse.com/api/
-	const BASE_URL = "https://api.datamuse.com/words";
-	const modes = [
-		{
-			name: "Means like...",
-			params: "ml=",
-		},
-		{
-			name: "Rhymes with...",
-			params: "arhy=1&sl=",
-		},
-		{
-			name: "Nouns described by...",
-			params: "rel_jja=",
-		},
-		{
-			name: "Adjectives that describe...",
-			params: "rel_jjb=",
-		},
-	];
-
-	let globalParams = `max=500&md=fr&topics=`;
-
-	async function fetchWords() {
+	async function loadWords() {
 		if (!search) return;
-		let url = `${BASE_URL}?${globalParams}${topics}&${modes[mode].params}${search}`;
-		let response = await requestUrl(url);
-		let result: Word[] = await response.json;
-		words = result;
-	}
-
-	function getPronunciation(word: Word) {
-		for (let tag of word.tags) {
-			if (tag.startsWith("pron:")) {
-				return tag.slice(5);
-			}
-		}
-		return "";
-	}
-
-	function getMeterFromWord(word: Word) {
-		let meter = "";
-		for (let char of getPronunciation(word)) {
-			if (char === "1") {
-				meter += "/";
-			} else if (char === "0") {
-				meter += "x";
-			}
-		}
-		return meter;
+		words = await fetchWords(search, mode, topics);
 	}
 
 	function displayWord(word: Word) {
@@ -94,16 +54,21 @@
 		);
 	}
 
-	// debounce keyboard input
-	const debounced = debounce(fetchWords, 200, true);
+	function topicsInput() {
+		onTopicsChange?.(topics);
+		debounced();
+	}
 
-	fetchWords();
+	// debounce keyboard input
+	const debounced = debounce(loadWords, 200, true);
+
+	loadWords();
 </script>
 
 <div class="wordcraft">
-	<select bind:value={mode} class="mode dropdown" onclick={fetchWords}>
-		{#each modes as mode, i}
-			<option value={i}>{mode.name}</option>
+	<select bind:value={mode} class="mode dropdown" onclick={loadWords}>
+		{#each MODES as modeOption, i}
+			<option value={i}>{modeOption.name}</option>
 		{/each}
 	</select>
 
@@ -118,7 +83,7 @@
 		bind:value={topics}
 		type="text"
 		placeholder="Themes (optional)"
-		oninput={debounced}
+		oninput={topicsInput}
 	/>
 
 	<div class="list">
@@ -135,7 +100,7 @@
 						} else if (mode === 3) {
 							mode = 2;
 						}
-						fetchWords();
+						loadWords();
 					}}
 				>
 					{word.word}
