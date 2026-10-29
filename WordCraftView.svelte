@@ -54,7 +54,11 @@
 		},
 	];
 
-	let globalParams = `max=500&md=fr&topics=`;
+	// Datamuse API key for WordCraft.
+	// You can get your own API key here: https://www.datamuse.com/api/
+	const DATAMUSE_API_KEY = "dm_EcEXSbecVT985zlpCuelBFGdRL4vvGxW";
+
+	let globalParams = `k=${DATAMUSE_API_KEY}&max=500&md=fr&topics=`;
 
 	async function fetchWords() {
 		if (!search) return;
